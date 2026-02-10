@@ -1,1 +1,95 @@
-[]
+[
+  {
+    "name": "theme_info",
+    "theme_name": "SignalOne Authority System",
+    "theme_version": "1.0.0",
+    "theme_author": "SignalOne",
+    "theme_documentation_url": "https://signalone.cloud",
+    "theme_support_url": "https://signalone.cloud/pages/zugang"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Color System"
+      },
+      {
+        "type": "color",
+        "id": "color_base",
+        "label": "Base Color",
+        "default": "#0A0A0A"
+      },
+      {
+        "type": "color",
+        "id": "color_surface",
+        "label": "Surface Color",
+        "default": "#1A1A1A"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "color_text_subtle",
+        "label": "Text Subtle",
+        "default": "#9CA3AF"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent Color (Orange)",
+        "default": "#FF8A00"
+      },
+      {
+        "type": "color",
+        "id": "color_border",
+        "label": "Border Color",
+        "default": "#2A2A2A"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Fonts"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Body font",
+        "default": "assistant_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "label": "Heading font",
+        "default": "assistant_n4"
+      }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Container Settings"
+      },
+      {
+        "type": "range",
+        "id": "container_width",
+        "min": 1000,
+        "max": 1400,
+        "step": 50,
+        "unit": "px",
+        "label": "Container max width",
+        "default": 1200
+      }
+    ]
+  }
+]

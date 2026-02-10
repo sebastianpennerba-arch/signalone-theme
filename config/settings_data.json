@@ -1,0 +1,15 @@
+{
+  "current": {
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {}
+      },
+      "footer": {
+        "type": "footer-minimal",
+        "settings": {}
+      }
+    },
+    "content_for_index": []
+  }
+}
