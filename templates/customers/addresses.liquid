@@ -1,0 +1,19 @@
+<div class="section section--customer">
+  <div class="container">
+    <h1 class="page-title">Addresses</h1>
+    
+    {% paginate customer.addresses by 10 %}
+      {% for address in customer.addresses %}
+        <div class="address-card">
+          {{ address | format_address }}
+          <a href="{{ routes.account_addresses_url }}/{{ address.id }}/edit">Edit</a>
+          <a href="{{ routes.account_addresses_url }}/{{ address.id }}">Delete</a>
+        </div>
+      {% endfor %}
+      
+      {{ paginate | default_pagination }}
+    {% endpaginate %}
+    
+    <a href="{{ routes.account_addresses_url }}/new" class="button">Add new address</a>
+  </div>
+</div>
