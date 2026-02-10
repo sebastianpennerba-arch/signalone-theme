@@ -1,0 +1,32 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "SignalOne Authority System",
+    "theme_version": "1.0.0",
+    "theme_author": "SignalOne",
+    "theme_documentation_url": "https://signalone.cloud",
+    "theme_support_url": "https://signalone.cloud/support"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Authority System Colors"
+      },
+      {
+        "type": "paragraph",
+        "content": "Das Farbschema ist fest definiert. Änderungen nur in Abstimmung mit Brand Guidelines."
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "System Typography"
+      }
+    ]
+  }
+]
