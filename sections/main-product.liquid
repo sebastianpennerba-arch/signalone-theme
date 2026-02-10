@@ -1,0 +1,49 @@
+{{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+
+<div class="section section--product">
+  <div class="container">
+    <div class="product">
+      <div class="product__media">
+        {% if product.featured_media %}
+          <img 
+            src="{{ product.featured_media | image_url: width: 800 }}" 
+            alt="{{ product.featured_media.alt | escape }}"
+            width="800"
+            height="{{ 800 | divided_by: product.featured_media.aspect_ratio | ceil }}"
+          >
+        {% endif %}
+      </div>
+      
+      <div class="product__info">
+        <h1 class="product__title">{{ product.title }}</h1>
+        
+        <div class="product__price">
+          <span class="price">{{ product.price | money }}</span>
+        </div>
+        
+        {% if product.description != blank %}
+          <div class="product__description rte">
+            {{ product.description }}
+          </div>
+        {% endif %}
+        
+        {% form 'product', product %}
+          <button type="submit" name="add" class="button button--primary button--full">
+            {% if product.available %}
+              Add to cart
+            {% else %}
+              Sold out
+            {% endif %}
+          </button>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Information",
+  "settings": []
+}
+{% endschema %}

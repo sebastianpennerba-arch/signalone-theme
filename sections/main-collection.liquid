@@ -1,0 +1,36 @@
+<div class="section section--collection">
+  <div class="container">
+    <div class="collection__products">
+      {% paginate collection.products by 24 %}
+        <div class="product-grid">
+          {% for product in collection.products %}
+            <div class="product-card">
+              <a href="{{ product.url }}" class="product-card__link">
+                {% if product.featured_media %}
+                  <img 
+                    src="{{ product.featured_media | image_url: width: 400 }}" 
+                    alt="{{ product.featured_media.alt | escape }}"
+                    loading="lazy"
+                  >
+                {% endif %}
+                <h3 class="product-card__title">{{ product.title }}</h3>
+                <span class="product-card__price">{{ product.price | money }}</span>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+        
+        {% if paginate.pages > 1 %}
+          {{ paginate | default_pagination }}
+        {% endif %}
+      {% endpaginate %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Products",
+  "settings": []
+}
+{% endschema %}

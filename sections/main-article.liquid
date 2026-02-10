@@ -1,0 +1,29 @@
+<div class="section section--article">
+  <div class="container container--narrow">
+    <article class="article">
+      <header class="article__header">
+        <h1 class="article__title">{{ article.title }}</h1>
+        <time class="article__date">{{ article.published_at | date: "%B %d, %Y" }}</time>
+      </header>
+      
+      {% if article.image %}
+        <img 
+          src="{{ article.image | image_url: width: 1200 }}" 
+          alt="{{ article.image.alt | escape }}"
+          class="article__image"
+        >
+      {% endif %}
+      
+      <div class="article__content rte">
+        {{ article.content }}
+      </div>
+    </article>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Article",
+  "settings": []
+}
+{% endschema %}

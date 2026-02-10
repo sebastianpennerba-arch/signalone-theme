@@ -1,0 +1,32 @@
+{% if recommendations.products_count > 0 %}
+<div class="section section--cart-recommendations">
+  <div class="container">
+    <h2 class="section-title">You might also like</h2>
+    
+    <div class="product-grid">
+      {% for product in recommendations.products limit: 4 %}
+        <div class="product-card">
+          <a href="{{ product.url }}" class="product-card__link">
+            {% if product.featured_media %}
+              <img 
+                src="{{ product.featured_media | image_url: width: 300 }}" 
+                alt="{{ product.featured_media.alt | escape }}"
+                loading="lazy"
+              >
+            {% endif %}
+            <h3 class="product-card__title">{{ product.title }}</h3>
+            <span class="product-card__price">{{ product.price | money }}</span>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Cart Recommendations",
+  "settings": []
+}
+{% endschema %}
