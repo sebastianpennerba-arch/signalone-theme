@@ -1,0 +1,41 @@
+{
+  "sections": {
+    "hero_system_statement": {
+      "type": "hero-system-statement",
+      "settings": {}
+    },
+    "system_einordnung": {
+      "type": "system-einordnung",
+      "settings": {}
+    },
+    "system_prinzip_determinismus": {
+      "type": "system-prinzip-determinismus",
+      "settings": {}
+    },
+    "interface_state_example": {
+      "type": "interface-state-example",
+      "settings": {}
+    },
+    "system_haltung_pause": {
+      "type": "system-haltung-pause",
+      "settings": {}
+    },
+    "zielgruppe_filter": {
+      "type": "zielgruppe-filter",
+      "settings": {}
+    },
+    "access_request": {
+      "type": "access-request",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero_system_statement",
+    "system_einordnung",
+    "system_prinzip_determinismus",
+    "interface_state_example",
+    "system_haltung_pause",
+    "zielgruppe_filter",
+    "access_request"
+  ]
+}

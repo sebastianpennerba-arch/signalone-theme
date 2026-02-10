@@ -1,0 +1,45 @@
+<div class="section section--404">
+  <div class="container container--narrow">
+    <div class="error-content">
+      <h1 class="error-code">404</h1>
+      <p class="error-message">{{ 'general.404.message' | t }}</p>
+      <a href="/" class="button button--primary">
+        {{ 'general.404.link' | t }}
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .section--404 {
+    padding: 8rem 0;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  .error-content {
+    text-align: center;
+  }
+  
+  .error-code {
+    font-size: 6rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+  
+  .error-message {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-subtle);
+    margin-bottom: 2rem;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Main 404",
+  "settings": []
+}
+{% endschema %}

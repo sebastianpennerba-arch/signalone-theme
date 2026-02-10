@@ -1,0 +1,113 @@
+<div class="section section--search">
+  <div class="container container--narrow">
+    <h1 class="section-title">{{ 'general.search.title' | t }}</h1>
+    
+    <form action="{{ routes.search_url }}" method="get" class="search-form">
+      <div class="search-input-wrapper">
+        <input 
+          type="search" 
+          name="q" 
+          value="{{ search.terms | escape }}"
+          placeholder="{{ 'general.search.placeholder' | t }}"
+          class="search-input"
+        >
+        <button type="submit" class="button button--primary">
+          {{ 'general.search.submit' | t }}
+        </button>
+      </div>
+    </form>
+
+    {%- if search.performed -%}
+      {%- if search.results_count > 0 -%}
+        <p class="search-results-count">{{ search.results_count }} {{ 'general.search.results' | t }}</p>
+        
+        <div class="search-results">
+          {%- for item in search.results -%}
+            <div class="search-result">
+              <h3 class="result-title">
+                <a href="{{ item.url }}">{{ item.title }}</a>
+              </h3>
+              {%- if item.excerpt -%}
+                <p class="result-excerpt">{{ item.excerpt | strip_html | truncate: 200 }}</p>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <p class="search-no-results">{{ 'general.search.no_results' | t: terms: search.terms }}</p>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</div>
+
+<style>
+  .section--search {
+    padding: 4rem 0 8rem;
+  }
+  
+  .search-form {
+    margin: 3rem 0;
+  }
+  
+  .search-input-wrapper {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .search-input {
+    flex: 1;
+    padding: 0.875rem 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+  }
+  
+  .search-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+  
+  .search-results-count {
+    margin-bottom: 2rem;
+    color: var(--color-text-subtle);
+  }
+  
+  .search-result {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .result-title {
+    font-size: var(--font-size-xl);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  
+  .result-title a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  
+  .result-title a:hover {
+    color: var(--color-accent);
+  }
+  
+  .result-excerpt {
+    color: var(--color-text-subtle);
+    line-height: 1.6;
+  }
+  
+  .search-no-results {
+    padding: 3rem;
+    text-align: center;
+    color: var(--color-text-subtle);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Main Search",
+  "settings": []
+}
+{% endschema %}
