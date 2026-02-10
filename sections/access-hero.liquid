@@ -1,0 +1,47 @@
+<div class="section section--access-hero">
+  <div class="container container--narrow">
+    <header class="hero-content">
+      <span class="section-label">{{ section.settings.label }}</span>
+      <h1 class="hero-title">{{ section.settings.heading }}</h1>
+      <p class="hero-subtitle">{{ section.settings.subheading }}</p>
+    </header>
+  </div>
+</div>
+
+<style>
+  .section--access-hero {
+    padding: 6rem 0 3rem;
+    background: var(--color-base);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Access Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "ZUGANG"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Überschrift",
+      "default": "Zugang zu SignalOne"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheadline",
+      "default": "Kein automatischer Zugang. Jede Anfrage wird manuell geprüft."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Access Hero"
+    }
+  ]
+}
+{% endschema %}

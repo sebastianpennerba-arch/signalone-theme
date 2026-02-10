@@ -1,0 +1,83 @@
+<div class="section section--expectation">
+  <div class="container container--narrow">
+    <div class="expectation-content">
+      <h2 class="section-title">{{ section.settings.heading }}</h2>
+      <div class="expectation-list">
+        {% for block in section.blocks %}
+          <div class="expectation-item" {{ block.shopify_attributes }}>
+            <h3 class="item-title">{{ block.settings.title }}</h3>
+            <p class="item-text">{{ block.settings.text }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .section--expectation {
+    padding: 4rem 0;
+    background: var(--color-surface);
+  }
+  
+  .expectation-list {
+    margin-top: 3rem;
+  }
+  
+  .expectation-item {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .expectation-item:last-child {
+    border-bottom: none;
+  }
+  
+  .item-title {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+  
+  .item-text {
+    color: var(--color-text-subtle);
+    line-height: 1.6;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Access Expectation",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Überschrift",
+      "default": "Was Sie erwarten können"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "expectation",
+      "name": "Expectation",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titel"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Access Expectation"
+    }
+  ]
+}
+{% endschema %}

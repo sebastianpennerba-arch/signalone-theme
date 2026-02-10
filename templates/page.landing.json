@@ -1,0 +1,36 @@
+{
+  "sections": {
+    "landing_hero": {
+      "type": "hero-system-statement",
+      "settings": {}
+    },
+    "landing_system_logic": {
+      "type": "system-einordnung",
+      "settings": {}
+    },
+    "landing_determinism": {
+      "type": "system-prinzip-determinismus",
+      "settings": {}
+    },
+    "landing_state_example": {
+      "type": "interface-state-example",
+      "settings": {}
+    },
+    "landing_why_limits": {
+      "type": "principle-why-limits",
+      "settings": {}
+    },
+    "landing_access": {
+      "type": "access-request",
+      "settings": {}
+    }
+  },
+  "order": [
+    "landing_hero",
+    "landing_system_logic",
+    "landing_determinism",
+    "landing_state_example",
+    "landing_why_limits",
+    "landing_access"
+  ]
+}

@@ -1,0 +1,71 @@
+<div class="section section--page">
+  <div class="container container--narrow">
+    <article class="page-content">
+      <h1 class="page-title">{{ page.title }}</h1>
+      <div class="page-body">
+        {{ page.content }}
+      </div>
+    </article>
+  </div>
+</div>
+
+<style>
+  .section--page {
+    padding: 4rem 0 8rem;
+  }
+  
+  .page-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+  }
+  
+  .page-body {
+    line-height: 1.8;
+    color: var(--color-text-subtle);
+  }
+  
+  .page-body h2 {
+    font-size: var(--font-size-2xl);
+    font-weight: 500;
+    margin: 3rem 0 1.5rem;
+    color: var(--color-text);
+  }
+  
+  .page-body h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 500;
+    margin: 2rem 0 1rem;
+    color: var(--color-text);
+  }
+  
+  .page-body p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .page-body ul,
+  .page-body ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  
+  .page-body li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .page-body a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  
+  .page-body a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Main Page",
+  "settings": []
+}
+{% endschema %}

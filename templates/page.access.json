@@ -1,0 +1,54 @@
+{
+  "sections": {
+    "access_hero": {
+      "type": "access-hero",
+      "settings": {}
+    },
+    "access_expectation": {
+      "type": "access-expectation",
+      "settings": {},
+      "blocks": {
+        "exp_1": {
+          "type": "expectation",
+          "settings": {
+            "title": "Manuelle Prüfung",
+            "text": "Jede Anfrage wird individuell bewertet."
+          }
+        },
+        "exp_2": {
+          "type": "expectation",
+          "settings": {
+            "title": "48h Antwortzeit",
+            "text": "Sie erhalten innerhalb von zwei Werktagen Rückmeldung."
+          }
+        },
+        "exp_3": {
+          "type": "expectation",
+          "settings": {
+            "title": "Keine Automatisierung",
+            "text": "Kein Bot. Keine automatische Freischaltung."
+          }
+        }
+      },
+      "block_order": [
+        "exp_1",
+        "exp_2",
+        "exp_3"
+      ]
+    },
+    "access_request": {
+      "type": "access-request",
+      "settings": {}
+    },
+    "access_manual_review": {
+      "type": "access-manual-review",
+      "settings": {}
+    }
+  },
+  "order": [
+    "access_hero",
+    "access_expectation",
+    "access_request",
+    "access_manual_review"
+  ]
+}

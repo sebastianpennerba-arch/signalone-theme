@@ -1,0 +1,45 @@
+<div class="section section--manual-review">
+  <div class="container container--narrow">
+    <div class="notice-box">
+      <p class="notice-text">{{ section.settings.text }}</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .section--manual-review {
+    padding: 4rem 0;
+    background: var(--color-base);
+  }
+  
+  .notice-box {
+    padding: 2rem 2.5rem;
+    background: var(--color-surface);
+    border-left: 3px solid var(--color-accent);
+  }
+  
+  .notice-text {
+    color: var(--color-text-subtle);
+    line-height: 1.6;
+    margin: 0;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Access Manual Review Notice",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Notice Text",
+      "default": "Ihre Anfrage wird von einem Menschen geprüft. Nicht von einem Algorithmus. Sie erhalten innerhalb von 48 Stunden eine Rückmeldung."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Access Manual Review Notice"
+    }
+  ]
+}
+{% endschema %}
