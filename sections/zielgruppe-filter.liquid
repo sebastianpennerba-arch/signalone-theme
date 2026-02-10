@@ -1,0 +1,170 @@
+<div class="section section--zielgruppe">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-title">{{ section.settings.heading }}</h2>
+    </header>
+    
+    <div class="zielgruppe-grid">
+      <div class="zielgruppe-column zielgruppe-column--geeignet">
+        <h3 class="column-title">{{ section.settings.geeignet_title }}</h3>
+        <ul class="zielgruppe-list">
+          {% for block in section.blocks %}
+            {% if block.type == 'geeignet' %}
+              <li class="zielgruppe-item">
+                <span class="item-icon">✓</span>
+                <span class="item-text">{{ block.settings.text }}</span>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+      
+      <div class="zielgruppe-column zielgruppe-column--nicht">
+        <h3 class="column-title">{{ section.settings.nicht_title }}</h3>
+        <ul class="zielgruppe-list">
+          {% for block in section.blocks %}
+            {% if block.type == 'nicht_geeignet' %}
+              <li class="zielgruppe-item">
+                <span class="item-icon">×</span>
+                <span class="item-text">{{ block.settings.text }}</span>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .section--zielgruppe {
+    padding: 8rem 0;
+    background: var(--color-base);
+  }
+  
+  .zielgruppe-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 4rem;
+  }
+  
+  .column-title {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+  }
+  
+  .zielgruppe-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .zielgruppe-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .zielgruppe-item:last-child {
+    border-bottom: none;
+  }
+  
+  .item-icon {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .zielgruppe-column--geeignet .item-icon {
+    color: var(--color-accent);
+  }
+  
+  .zielgruppe-column--nicht {
+    opacity: 0.5;
+  }
+  
+  .zielgruppe-column--nicht .item-icon {
+    color: var(--color-text-subtle);
+  }
+  
+  .item-text {
+    flex: 1;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    .zielgruppe-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    
+    .zielgruppe-column--nicht {
+      opacity: 0.7;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Zielgruppe Filter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Überschrift",
+      "default": "Für wen ist SignalOne"
+    },
+    {
+      "type": "text",
+      "id": "geeignet_title",
+      "label": "Geeignet Titel",
+      "default": "Geeignet für"
+    },
+    {
+      "type": "text",
+      "id": "nicht_title",
+      "label": "Nicht geeignet Titel",
+      "default": "Nicht geeignet für"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "geeignet",
+      "name": "Geeignet",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "nicht_geeignet",
+      "name": "Nicht geeignet",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Zielgruppe Filter"
+    }
+  ]
+}
+{% endschema %}

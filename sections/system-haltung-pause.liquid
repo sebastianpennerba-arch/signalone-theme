@@ -1,0 +1,48 @@
+<div class="section section--pause">
+  <div class="container">
+    <div class="pause-content">
+      {% if section.settings.text != blank %}
+        <p class="pause-text">{{ section.settings.text }}</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .section--pause {
+    padding: 12rem 0;
+    background: var(--color-surface);
+  }
+  
+  .pause-content {
+    max-width: 42rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .pause-text {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-subtle);
+    line-height: 1.8;
+    margin: 0;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "System Haltung Pause",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text (optional)",
+      "default": "Systeme brauchen Pausen. Menschen auch."
+    }
+  ],
+  "presets": [
+    {
+      "name": "System Haltung Pause"
+    }
+  ]
+}
+{% endschema %}
