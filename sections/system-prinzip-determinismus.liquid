@@ -1,0 +1,130 @@
+{% comment %} System Prinzip Determinismus - Visual Explanation {% endcomment %}
+
+<section class="prinzip-determinismus section" data-section-id="{{ section.id }}">
+  <div class="container">
+    <div class="prinzip-determinismus__grid">
+      
+      <div class="prinzip-determinismus__content">
+        {% if section.settings.headline != blank %}
+          <h2 class="mb-lg">{{ section.settings.headline }}</h2>
+        {% endif %}
+        
+        {% if section.settings.text != blank %}
+          <div class="prinzip-determinismus__text">
+            {{ section.settings.text }}
+          </div>
+        {% endif %}
+      </div>
+      
+      <div class="prinzip-determinismus__diagram">
+        <div class="diagram">
+          <div class="diagram__row">
+            <div class="diagram__label">Input</div>
+            <div class="diagram__box">Kampagnendaten</div>
+          </div>
+          <div class="diagram__arrow">↓</div>
+          <div class="diagram__row">
+            <div class="diagram__label">Prüfung</div>
+            <div class="diagram__box diagram__box--accent">Sensei</div>
+          </div>
+          <div class="diagram__arrow">↓</div>
+          <div class="diagram__row">
+            <div class="diagram__label">Output</div>
+            <div class="diagram__box">Status</div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<style>
+  .prinzip-determinismus__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+  }
+  
+  .prinzip-determinismus__text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+  }
+  
+  .diagram {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  
+  .diagram__row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+  
+  .diagram__label {
+    width: 80px;
+    font-size: 11px;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-tertiary);
+  }
+  
+  .diagram__box {
+    flex: 1;
+    padding: var(--space-md) var(--space-lg);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 14px;
+  }
+  
+  .diagram__box--accent {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+  
+  .diagram__arrow {
+    text-align: center;
+    font-size: 24px;
+    color: var(--color-text-tertiary);
+    margin: var(--space-xs) 0;
+  }
+  
+  @media (max-width: 768px) {
+    .prinzip-determinismus__grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "System Prinzip Determinismus",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Deterministisch."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Gleiche Daten ergeben immer den gleichen Status. Keine Zufallsfaktoren. Keine Black Box. Jede Bewertung ist nachvollziehbar.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "System Prinzip Determinismus"
+    }
+  ]
+}
+{% endschema %}

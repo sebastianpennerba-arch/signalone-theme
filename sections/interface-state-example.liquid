@@ -1,0 +1,119 @@
+{% comment %} Interface State Example - Product UI Preview {% endcomment %}
+
+<section class="interface-state section--compact" data-section-id="{{ section.id }}">
+  <div class="container container--narrow">
+    
+    <div class="interface-state__preview panel panel--elevated">
+      
+      {% if section.settings.status_label != blank %}
+        <div class="interface-state__header mb-md">
+          <span class="status-badge status-badge--active">
+            {{ section.settings.status_label }}
+          </span>
+        </div>
+      {% endif %}
+      
+      {% if section.settings.main_statement != blank %}
+        <h3 class="interface-state__statement mb-lg">
+          {{ section.settings.main_statement }}
+        </h3>
+      {% endif %}
+      
+      {% if section.settings.reason_1 != blank or section.settings.reason_2 != blank or section.settings.reason_3 != blank %}
+        <div class="interface-state__reasons">
+          {% if section.settings.reason_1 != blank %}
+            <div class="reason-item">
+              <span class="reason-item__bullet">•</span>
+              <span>{{ section.settings.reason_1 }}</span>
+            </div>
+          {% endif %}
+          {% if section.settings.reason_2 != blank %}
+            <div class="reason-item">
+              <span class="reason-item__bullet">•</span>
+              <span>{{ section.settings.reason_2 }}</span>
+            </div>
+          {% endif %}
+          {% if section.settings.reason_3 != blank %}
+            <div class="reason-item">
+              <span class="reason-item__bullet">•</span>
+              <span>{{ section.settings.reason_3 }}</span>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+      
+    </div>
+    
+  </div>
+</section>
+
+<style>
+  .interface-state__preview {
+    padding: var(--space-xl);
+  }
+  
+  .interface-state__statement {
+    font-size: 24px;
+    font-weight: 400;
+  }
+  
+  .interface-state__reasons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  
+  .reason-item {
+    display: flex;
+    gap: var(--space-sm);
+    font-size: 14px;
+    color: var(--color-text-secondary);
+  }
+  
+  .reason-item__bullet {
+    color: var(--color-accent);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Interface State Example",
+  "settings": [
+    {
+      "type": "text",
+      "id": "status_label",
+      "label": "Status Label",
+      "default": "Campaign Status"
+    },
+    {
+      "type": "text",
+      "id": "main_statement",
+      "label": "Main Statement",
+      "default": "Kampagne sollte gestoppt werden."
+    },
+    {
+      "type": "text",
+      "id": "reason_1",
+      "label": "Reason 1",
+      "default": "CPA 34% über Zielwert"
+    },
+    {
+      "type": "text",
+      "id": "reason_2",
+      "label": "Reason 2",
+      "default": "Conversion-Rate unter Minimum"
+    },
+    {
+      "type": "text",
+      "id": "reason_3",
+      "label": "Reason 3",
+      "default": "Keine Verbesserung in 7 Tagen"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Interface State Example"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,77 @@
+{% comment %} System Einordnung - Context Section {% endcomment %}
+
+<section class="system-einordnung section--compact" data-section-id="{{ section.id }}">
+  <div class="container container--narrow">
+    
+    {% if section.settings.label != blank %}
+      <div class="system-einordnung__label mb-md">
+        <span class="text-mono text-tertiary text-uppercase" style="font-size: 11px;">
+          {{ section.settings.label }}
+        </span>
+      </div>
+    {% endif %}
+    
+    {% if section.settings.headline != blank %}
+      <h2 class="system-einordnung__headline mb-lg">
+        {{ section.settings.headline }}
+      </h2>
+    {% endif %}
+    
+    {% if section.settings.text != blank %}
+      <div class="system-einordnung__text">
+        <div class="panel" style="padding: var(--space-lg);">
+          {{ section.settings.text }}
+        </div>
+      </div>
+    {% endif %}
+    
+  </div>
+  <div class="divider"></div>
+</section>
+
+<style>
+  .system-einordnung__headline {
+    font-size: 32px;
+  }
+  
+  .system-einordnung__text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+  }
+  
+  @media (max-width: 768px) {
+    .system-einordnung__headline { font-size: 24px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "System Einordnung",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "Einordnung"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Was SignalOne nicht ist."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Kein Automatisierungs-Tool. Kein AI-Assistent. Keine Handlungsempfehlungen. SignalOne ist ein Prüfmechanismus – ein deterministisches System zur Bewertung von Meta Ads Kampagnen.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "System Einordnung"
+    }
+  ]
+}
+{% endschema %}
