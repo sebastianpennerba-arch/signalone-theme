@@ -1,7 +1,32 @@
 {
   "general": {
-    "accessibility": {
-      "skip_to_content": "Zum Inhalt springen"
+    "404": {
+      "title": "Seite nicht gefunden",
+      "message": "Die angeforderte Seite existiert nicht.",
+      "link": "Zurück zur Startseite"
+    },
+    "search": {
+      "title": "Suche",
+      "placeholder": "Suchen...",
+      "submit": "Suchen",
+      "results": "Ergebnisse",
+      "no_results": "Keine Ergebnisse für \"{{ terms }}\" gefunden."
+    },
+    "meta": {
+      "tags": "Markiert mit \"{{ tags }}\"",
+      "page": "Seite {{ page }}"
+    }
+  },
+  "accessibility": {
+    "skip_to_text": "Zum Inhalt springen",
+    "refresh_page": "Eine Auswahl führt zu einer Seitenaktualisierung.",
+    "link_messages": {
+      "new_window": "Wird in einem neuen Fenster geöffnet."
+    }
+  },
+  "sections": {
+    "header": {
+      "menu": "Menü"
     }
   }
 }
