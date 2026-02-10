@@ -1,0 +1,146 @@
+{% comment %} Hero System Statement - Authority Entry Point {% endcomment %}
+
+<section class="hero-system section" data-section-id="{{ section.id }}">
+  <div class="container container--narrow">
+    <div class="hero-system__content">
+      
+      {% if section.settings.badge != blank %}
+        <div class="hero-system__badge mb-md">
+          <span class="status-badge">{{ section.settings.badge }}</span>
+        </div>
+      {% endif %}
+      
+      <h1 class="hero-system__headline mb-lg">
+        {{ section.settings.headline | default: "Sensei prüft." }}
+      </h1>
+      
+      {% if section.settings.subline != blank %}
+        <p class="hero-system__subline mb-xl">
+          {{ section.settings.subline }}
+        </p>
+      {% endif %}
+      
+      <div class="hero-system__actions mb-lg">
+        {% if section.settings.cta_primary_text != blank %}
+          <a href="{{ section.settings.cta_primary_url }}" class="btn btn--primary">
+            {{ section.settings.cta_primary_text }}
+          </a>
+        {% endif %}
+        
+        {% if section.settings.cta_secondary_text != blank %}
+          <a href="{{ section.settings.cta_secondary_url }}" class="btn btn--secondary">
+            {{ section.settings.cta_secondary_text }}
+          </a>
+        {% endif %}
+      </div>
+      
+      {% if section.settings.microcopy != blank %}
+        <p class="hero-system__microcopy text-tertiary text-center">
+          {{ section.settings.microcopy }}
+        </p>
+      {% endif %}
+      
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-system {
+    padding: var(--space-4xl) 0 var(--space-3xl);
+  }
+  
+  .hero-system__content {
+    text-align: center;
+  }
+  
+  .hero-system__headline {
+    font-size: 64px;
+    line-height: 1.1;
+  }
+  
+  .hero-system__subline {
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-system__actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .hero-system__microcopy {
+    font-size: 13px;
+  }
+  
+  @media (max-width: 768px) {
+    .hero-system__headline { font-size: 40px; }
+    .hero-system__subline { font-size: 16px; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Hero System Statement",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge",
+      "default": "Decision Intelligence"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Sensei prüft."
+    },
+    {
+      "type": "textarea",
+      "id": "subline",
+      "label": "Subline",
+      "default": "Keine Automatisierung. Keine Handlungsvorschläge. Klare Systemzustände."
+    },
+    {
+      "type": "text",
+      "id": "cta_primary_text",
+      "label": "Primary CTA Text",
+      "default": "Zugang beantragen"
+    },
+    {
+      "type": "url",
+      "id": "cta_primary_url",
+      "label": "Primary CTA URL",
+      "default": "/pages/zugang"
+    },
+    {
+      "type": "text",
+      "id": "cta_secondary_text",
+      "label": "Secondary CTA Text",
+      "default": "Prinzip verstehen"
+    },
+    {
+      "type": "url",
+      "id": "cta_secondary_url",
+      "label": "Secondary CTA URL",
+      "default": "/pages/prinzip"
+    },
+    {
+      "type": "text",
+      "id": "microcopy",
+      "label": "Microcopy",
+      "default": "Kein Trial. Keine Sales-Mails. Zugang wird manuell freigegeben."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero System Statement"
+    }
+  ]
+}
+{% endschema %}
