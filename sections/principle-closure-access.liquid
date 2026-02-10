@@ -1,0 +1,72 @@
+<div class="section section--closure">
+  <div class="container container--narrow">
+    <div class="closure-content">
+      <h2 class="closure-title">{{ section.settings.heading }}</h2>
+      <p class="closure-text">{{ section.settings.text }}</p>
+      <a href="{{ section.settings.link_url }}" class="button button--primary">
+        {{ section.settings.button_text }}
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .section--closure {
+    padding: 8rem 0;
+    background: var(--color-base);
+  }
+  
+  .closure-content {
+    text-align: center;
+  }
+  
+  .closure-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  
+  .closure-text {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-subtle);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Principle Closure Access",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Überschrift",
+      "default": "Verstanden?"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Dann ist es Zeit, SignalOne zu testen."
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL",
+      "default": "/pages/zugang"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Zugang anfragen"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Principle Closure Access"
+    }
+  ]
+}
+{% endschema %}

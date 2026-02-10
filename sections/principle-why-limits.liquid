@@ -1,0 +1,91 @@
+<div class="section section--why-limits">
+  <div class="container">
+    <div class="content-split">
+      <div class="split-text">
+        <h2 class="section-title">{{ section.settings.heading }}</h2>
+        <div class="rich-text">
+          {{ section.settings.content }}
+        </div>
+      </div>
+      <div class="split-visual">
+        <div class="visual-box">
+          <p class="visual-statement">{{ section.settings.visual_text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .section--why-limits {
+    padding: 8rem 0;
+    background: var(--color-surface);
+  }
+  
+  .content-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+  
+  .rich-text {
+    line-height: 1.8;
+    color: var(--color-text-subtle);
+  }
+  
+  .rich-text p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .visual-box {
+    padding: 3rem;
+    background: var(--color-base);
+    border: 1px solid var(--color-border);
+    text-align: center;
+  }
+  
+  .visual-statement {
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+  
+  @media (max-width: 768px) {
+    .content-split {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Principle Why Limits",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Überschrift",
+      "default": "Warum Grenzen wichtig sind"
+    },
+    {
+      "type": "html",
+      "id": "content",
+      "label": "Inhalt",
+      "default": "<p>Automatisierung suggeriert Kontrolle. Bewertung gibt Klarheit.</p><p>SignalOne zwingt zu nichts. Es zeigt, was ist.</p>"
+    },
+    {
+      "type": "text",
+      "id": "visual_text",
+      "label": "Visual Text",
+      "default": "Systeme, die zu viel versprechen, nehmen zu viel ab."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Principle Why Limits"
+    }
+  ]
+}
+{% endschema %}

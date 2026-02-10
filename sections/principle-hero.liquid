@@ -1,0 +1,64 @@
+<div class="section section--principle-hero">
+  <div class="container">
+    <header class="hero-content">
+      <span class="section-label">{{ section.settings.label }}</span>
+      <h1 class="hero-title">{{ section.settings.heading }}</h1>
+      <p class="hero-subtitle">{{ section.settings.subheading }}</p>
+    </header>
+  </div>
+</div>
+
+<style>
+  .section--principle-hero {
+    padding: 6rem 0 4rem;
+    background: var(--color-base);
+  }
+  
+  .hero-content {
+    max-width: 48rem;
+  }
+  
+  .hero-title {
+    font-size: var(--font-size-4xl);
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-subtle);
+    line-height: 1.6;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Principle Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "PRINZIP"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Überschrift",
+      "default": "Keine Automatisierung. Nur Bewertung."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheadline",
+      "default": "SignalOne gibt keine Handlungsempfehlungen. Es bewertet Zustände."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Principle Hero"
+    }
+  ]
+}
+{% endschema %}

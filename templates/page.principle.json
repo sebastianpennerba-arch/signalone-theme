@@ -1,0 +1,65 @@
+{
+  "sections": {
+    "principle_hero": {
+      "type": "principle-hero",
+      "settings": {}
+    },
+    "principle_why_limits": {
+      "type": "principle-why-limits",
+      "settings": {}
+    },
+    "principle_states": {
+      "type": "principle-states",
+      "settings": {},
+      "blocks": {
+        "state_1": {
+          "type": "state",
+          "settings": {
+            "state": "good",
+            "state_label": "GOOD",
+            "title": "System läuft",
+            "description": "Alle Kriterien erfüllt. Keine Intervention nötig."
+          }
+        },
+        "state_2": {
+          "type": "state",
+          "settings": {
+            "state": "pause",
+            "state_label": "PAUSE",
+            "title": "System pausiert",
+            "description": "Nicht ausreichend Daten oder Grenzwerte erreicht."
+          }
+        },
+        "state_3": {
+          "type": "state",
+          "settings": {
+            "state": "error",
+            "state_label": "ERROR",
+            "title": "System gestört",
+            "description": "Technisches Problem oder Konfigurationsfehler."
+          }
+        }
+      },
+      "block_order": [
+        "state_1",
+        "state_2",
+        "state_3"
+      ]
+    },
+    "principle_no_automation": {
+      "type": "principle-no-automation",
+      "settings": {}
+    },
+    "principle_closure_access": {
+      "type": "principle-closure-access",
+      "settings": {}
+    }
+  },
+  "order": [
+    "principle_hero",
+    "principle_why_limits",
+    "principle_states",
+    "principle_no_automation",
+    "principle_closure_access"
+  ]
+}

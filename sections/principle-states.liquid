@@ -1,0 +1,140 @@
+<div class="section section--principle-states">
+  <div class="container">
+    <h2 class="section-title">{{ section.settings.heading }}</h2>
+    
+    <div class="states-grid">
+      {% for block in section.blocks %}
+        <div class="state-card" {{ block.shopify_attributes }}>
+          <div class="state-badge state-badge--{{ block.settings.state }}">{{ block.settings.state_label }}</div>
+          <h3 class="state-title">{{ block.settings.title }}</h3>
+          <p class="state-description">{{ block.settings.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .section--principle-states {
+    padding: 8rem 0;
+    background: var(--color-base);
+  }
+  
+  .states-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+  
+  .state-card {
+    padding: 2.5rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+  }
+  
+  .state-badge {
+    display: inline-block;
+    padding: 0.375rem 0.875rem;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+  }
+  
+  .state-badge--good {
+    background: rgba(255, 138, 0, 0.1);
+    color: var(--color-accent);
+  }
+  
+  .state-badge--pause {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-text-subtle);
+  }
+  
+  .state-badge--error {
+    background: rgba(255, 59, 48, 0.1);
+    color: #ff3b30;
+  }
+  
+  .state-title {
+    font-size: var(--font-size-xl);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  
+  .state-description {
+    color: var(--color-text-subtle);
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    .states-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Principle States",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Überschrift",
+      "default": "Drei Zustände. Keine Grautöne."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "state",
+      "name": "State",
+      "settings": [
+        {
+          "type": "select",
+          "id": "state",
+          "label": "State Type",
+          "options": [
+            {
+              "value": "good",
+              "label": "Good"
+            },
+            {
+              "value": "pause",
+              "label": "Pause"
+            },
+            {
+              "value": "error",
+              "label": "Error"
+            }
+          ],
+          "default": "good"
+        },
+        {
+          "type": "text",
+          "id": "state_label",
+          "label": "State Label",
+          "default": "GOOD"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titel"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Beschreibung"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Principle States"
+    }
+  ]
+}
+{% endschema %}
